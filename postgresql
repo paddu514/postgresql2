@@ -1,0 +1,7 @@
+SELECT dtno,
+       eno,
+       emname,
+       job,
+       salary,
+       LAG(sal, 1, 0) OVER (PARTITION BY dtno ORDER BY salary) AS salary_prev
+FROM   employee;
